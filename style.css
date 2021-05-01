@@ -1,0 +1,165 @@
+  *{
+		box-sizing: border-box;
+		font-family: 'Lora', serif;
+	}
+	
+	.flip-container {
+		margin: 10vh auto;
+		
+		-webkit-perspective: 1000;
+		-moz-perspective: 1000;
+		-ms-perspective: 1000;
+		perspective: 1000;
+			
+		-ms-transform: perspective(1000px);
+		-moz-transform: perspective(1000px);
+			
+		-moz-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		-ms-transform-origin: preserve-3d;
+		}
+	
+	/* flip the pane, and move down*/
+	.flip-container.flipped .flipper, .flip-container.flipped .flipper {
+		-webkit-transform: rotateY(180deg);
+	  -moz-transform: rotateY(180deg);
+	  -o-transform: rotateY(180deg);
+	  transform: rotateY(180deg);
+	  
+		}
+	
+	.flip-container, .front, .back {
+		width: 600px;
+		height: 400px;
+		border-radius: 1em;
+		}
+		@media only screen and (max-width: 768px) {
+			.flip-container{
+				margin: 10vh auto;
+		}
+		.flip-container, .front, .back {
+			width: 80vw;
+			height: 80vh;
+		}
+	}
+	
+	/*change style of the card here */
+	.front {
+		text-align: center;
+		color: var(--text);
+		border:solid 10px var(--border);
+	}
+	.back {
+		text-align: center;
+		color: var(--text);
+		border:solid 10px var(--border);
+	}
+	
+	#flashcard-content-front, #flashcard-content-back{
+		position: relative;
+		top: 30%;
+	}
+	
+	/* flip speed goes here */
+	.flipper {
+	    position: relative;
+	    -webkit-transition: 0.6s;
+	    -webkit-transform-style: preserve-3d;
+	    -ms-transition: 0.6s;
+	    -moz-transition: 0.6s;
+	    -moz-transform: perspective(1000px);
+	    -moz-transform-style: preserve-3d;
+	    -ms-transform-style: preserve-3d;
+	    transition: 0.6s;
+	    transform-style: preserve-3d;
+	}
+	
+	/* hide back of pane during swap */
+	.front, .back {
+		  position: absolute;
+	    top: 0;
+	    left: 0;
+	    -webkit-backface-visibility: hidden;
+	    -moz-backface-visibility: hidden;
+	    -ms-backface-visibility: hidden;
+	    backface-visibility: hidden;
+		
+	    -webkit-transition: 0.6s;
+	    -webkit-transform-style: preserve-3d;
+	    -webkit-transform: rotateY(0deg);
+	    -moz-transition: 0.6s;
+	    -moz-transform-style: preserve-3d;
+	    -moz-transform: rotateY(0deg);
+	    -o-transition: 0.6s;
+	    -o-transform-style: preserve-3d;
+	    -o-transform: rotateY(0deg);
+	    -ms-transition: 0.6s;
+	    -ms-transform-style: preserve-3d;
+	    -ms-transform: rotateY(0deg);
+	    transition: 0.6s;
+	    transform-style: preserve-3d;
+	    transform: rotateY(0deg);
+	}
+	
+	/* front pane, placed above back */
+	.front {
+		z-index: 2;
+		/* for firefox 31 */
+	  -webkit-transform: rotateY(0deg);
+	  -ms-transform: rotateY(0deg);
+		background-color: var(--front);
+	}
+	
+	/* back, initially hidden pane */
+	.back {
+	  -webkit-transform: rotateY(-180deg);
+	  -moz-transform: rotateY(-180deg);
+	  -o-transform: rotateY(-180deg);
+	  -ms-transform: rotateY(-180deg);
+	  transform: rotateY(-180deg);
+		background-color: var(--back);
+	}
+	
+	div{
+		text-align:center;
+	}
+	
+	button{
+		/*Adjust the size, spacing, or color of the buttons*/
+				height: 3em;
+				width: 200px;
+				background-color: white;
+				border: solid 10px var(--border);
+				color: #2ab8d1;
+				text-align: center;
+				font-size: 40px;
+				font-family: 'Lora', serif;
+				
+	}
+	
+	body{
+		--front: white;
+		--back: white;
+		--text: #2ab8d1;
+		--border: #ffe6ee;
+		--title: #2ab8d1;
+		background-image: url('https://images.unsplash.com/photo-1602615576820-ea14cf3e476a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+		background-size:cover;
+		font-family: 'Lora', serif;
+		font-size: 55px;
+	}
+	
+	h1{
+		/* Change the font or font size of the header here*/
+		font-size: 70px;
+		font-family: 'Lora', serif;
+		color: var(--title);
+		text-align: center;
+	}
+    h2{
+		/* Change the font or font size of the header here*/
+		font-size: 45px;
+		font-family: 'Lora', serif;
+		color: var(--title);
+		text-align: center;
+    }
